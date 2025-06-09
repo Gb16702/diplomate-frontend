@@ -79,12 +79,12 @@
     });
 
     const emit = defineEmits<{
-        click: [];
+        click: [Event];
     }>();
 
-    const handleClick = () => {
+    const handleClick = (Event: any) => {
         if (!isButtonDisabled.value) {
-            emit("click");
+            emit("click", Event);
         }
     };
 </script>
