@@ -31,3 +31,16 @@ body {
     min-height: 100vh;
     font-family: var(--font-playfair-display), sans-serif;
 }
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    transition: color 0.15s;
+    cursor: pointer;
+
+    &.disabled {
+        cursor: not-allowed;
+    }
+}
