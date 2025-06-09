@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
-import Label from "./Label.vue";
+import FormLabel from "./FormLabel.vue";
 
 const meta = {
     title: "Atoms/Label",
-    component: Label,
+    component: FormLabel,
     tags: ["autodocs"],
     parameters: {
         docs: {
@@ -12,7 +12,7 @@ const meta = {
             },
         },
     },
-} satisfies Meta<typeof Label>;
+} satisfies Meta<typeof FormLabel>;
 
 export default meta;
 
@@ -37,4 +37,4 @@ export const Base = {
         inputId: "username",
         default: "username",
     },
-} satisfies StoryObj<typeof Label>;
+} satisfies StoryObj<typeof FormLabel>;
