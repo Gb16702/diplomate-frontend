@@ -25,7 +25,7 @@
             cx="33"
             cy="33"
             r="30"
-        ></circle>
+        />
     </svg>
 </template>
 
