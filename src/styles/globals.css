@@ -1,4 +1,9 @@
 :root {
+  --font-playfair-display: "Playfair Display";
+  --font-dm-sans: "DM Sans";
+  --font-rubik: "Rubik";
+  --font-space-grotesk: "Space Grotesk";
+
   --color-cream: #fcf7ee;
   --color-black: #040402;
   --color-orange: #c65122;
@@ -12,11 +17,6 @@
   --color-gray-light: #6a7282;
   --color-gray-lighter: #D5D7DA;
 
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color: rgba(255, 255, 255, 0.87);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

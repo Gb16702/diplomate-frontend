@@ -5,6 +5,18 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@fontsource/dm-sans':
+    specifier: ^5.2.6
+    version: 5.2.6
+  '@fontsource/playfair-display':
+    specifier: ^5.2.6
+    version: 5.2.6
+  '@fontsource/rubik':
+    specifier: ^5.2.6
+    version: 5.2.6
+  '@fontsource/space-grotesk':
+    specifier: ^5.2.8
+    version: 5.2.8
   compression:
     specifier: ^1.8.0
     version: 1.8.0
@@ -370,6 +382,22 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@fontsource/dm-sans@5.2.6:
+    resolution: {integrity: sha512-3AmJcX93hqmevsC2ixNwHj3iO3sNY/YHBqGhg0MjIyfhk6aZLNv1s2HqJ6xf8yf1rXXK3yR56rzyA3O21htKkg==}
+    dev: false
+
+  /@fontsource/playfair-display@5.2.6:
+    resolution: {integrity: sha512-hWfFm2j+Dlg+UwabNJu5vi45otmLSG64hUzNFJ8pIDBgqWBviEPpVaDIZWHm2RYyIxhg9YXTPsZWdpvsu7fkqQ==}
+    dev: false
+
+  /@fontsource/rubik@5.2.6:
+    resolution: {integrity: sha512-KNY87CIXAzmKMfL8gnQV0nbePn9g/kG3tF4GJoUEASSz+ECFWYoPir8TSySblYfXTInDL/kHJm6CMrrEW/U/ZA==}
+    dev: false
+
+  /@fontsource/space-grotesk@5.2.8:
+    resolution: {integrity: sha512-8rlIzpX+lo36y0g77OlwjeBj2DPo9XOwrzqKRLHYZcWcsj73SlkVI6UdXxDCZGLO7oQti1q9QPXzMBYbzSz60w==}
+    dev: false
 
   /@isaacs/cliui@8.0.2:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
