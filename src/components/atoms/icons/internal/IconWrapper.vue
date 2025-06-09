@@ -2,7 +2,7 @@
     export type IconWrapperProps = {
         size?: string;
         fill?: string;
-        stroke: string;
+        stroke?: string;
         width?: string;
         classes?: string;
     };

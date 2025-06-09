@@ -3,7 +3,7 @@
         stroke?: string;
     };
 
-    withDefaults(defineProps<Props>(), {
+    const props = withDefaults(defineProps<Props>(), {
         stroke: "white",
     });
 </script>
@@ -19,7 +19,7 @@
         <circle
             class="circle"
             fill="none"
-            :stroke="stroke"
+            :stroke="props.stroke"
             stroke-width="7"
             stroke-linecap="round"
             cx="33"
