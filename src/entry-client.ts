@@ -1,6 +1,6 @@
-import './styles/globals.css'
-import { createApp } from './main'
+import "./styles/globals.css";
+import { createApp } from "./main";
 
-const { app } = createApp()
+const { app } = createApp();
 
-app.mount('#app')
+app.mount("#app");

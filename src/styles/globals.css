@@ -1,33 +1,33 @@
 :root {
-  --font-playfair-display: "Playfair Display";
-  --font-dm-sans: "DM Sans";
-  --font-rubik: "Rubik";
-  --font-space-grotesk: "Space Grotesk";
+    --font-playfair-display: "Playfair Display";
+    --font-dm-sans: "DM Sans";
+    --font-rubik: "Rubik";
+    --font-space-grotesk: "Space Grotesk";
 
-  --color-cream: #fcf7ee;
-  --color-black: #040402;
-  --color-orange: #c65122;
-  --color-orange-dark: #b34a1f;
-  --color-brown: #8a2424;
-  --color-green: #7a9785;
-  --color-amber: #fea250;
-  --color-red: #c50022;
-  --color-gray-dark: #4f5665;
-  --color-gray: #73726c;
-  --color-gray-light: #6a7282;
-  --color-gray-lighter: #D5D7DA;
+    --color-cream: #fcf7ee;
+    --color-black: #040402;
+    --color-orange: #c65122;
+    --color-orange-dark: #b34a1f;
+    --color-brown: #8a2424;
+    --color-green: #7a9785;
+    --color-amber: #fea250;
+    --color-red: #c50022;
+    --color-gray-dark: #4f5665;
+    --color-gray: #73726c;
+    --color-gray-light: #6a7282;
+    --color-gray-lighter: #d5d7da;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  font-family: var(--font-playfair-display), sans-serif;
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+    font-family: var(--font-playfair-display), sans-serif;
 }

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/vue3-vite"
+import type { Meta, StoryObj } from "@storybook/vue3-vite";
 import Loader from "./Loader.vue";
 
 const meta = {
@@ -9,16 +9,16 @@ const meta = {
         stroke: {
             control: "color",
             description: "The color of the loader",
-        }
-    }
-} satisfies Meta<typeof Loader>
+        },
+    },
+} satisfies Meta<typeof Loader>;
 
 export default meta;
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof meta>;
 
 export const Base: Story = {
     args: {
         stroke: "#000000",
     },
-}
+};

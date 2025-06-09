@@ -1,0 +1,14 @@
+.output/
+
+node_modules/
+
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
+
+*.tmp
+*.temp
+
+storybook-static/

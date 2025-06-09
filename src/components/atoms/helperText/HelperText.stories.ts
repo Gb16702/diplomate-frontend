@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/vue3-vite"
+import type { Meta, StoryObj } from "@storybook/vue3-vite";
 import HelperText from "./HelperText.vue";
 
 const meta = {
@@ -8,11 +8,11 @@ const meta = {
     parameters: {
         docs: {
             description: {
-                component: "Helper text to display below an input for additional description"
-            }
-        }
-    }
-} satisfies Meta<typeof HelperText>
+                component: "Helper text to display below an input for additional description",
+            },
+        },
+    },
+} satisfies Meta<typeof HelperText>;
 
 export default meta;
 
@@ -20,11 +20,11 @@ export const Base = {
     argTypes: {
         default: {
             control: "text",
-            description: "HelperText content"
-        }
+            description: "HelperText content",
+        },
     },
 
     args: {
-        default: "We'll only use it for spam"
-    }
-} satisfies StoryObj<typeof HelperText>
+        default: "We'll only use it for spam",
+    },
+} satisfies StoryObj<typeof HelperText>;
