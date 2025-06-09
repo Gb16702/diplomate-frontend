@@ -1,10 +1,22 @@
 :root {
+  --color-cream: #fcf7ee;
+  --color-black: #040402;
+  --color-orange: #c65122;
+  --color-orange-dark: #b34a1f;
+  --color-brown: #8a2424;
+  --color-green: #7a9785;
+  --color-amber: #fea250;
+  --color-red: #c50022;
+  --color-gray-dark: #4f5665;
+  --color-gray: #73726c;
+  --color-gray-light: #6a7282;
+  --color-gray-lighter: #D5D7DA;
+
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color: rgba(255, 255, 255, 0.87);
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
