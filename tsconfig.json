@@ -6,7 +6,6 @@
         "module": "ESNext",
         "skipLibCheck": true,
 
-        /* Bundler mode */
         "moduleResolution": "bundler",
         "allowImportingTsExtensions": true,
         "isolatedModules": true,
@@ -14,12 +13,16 @@
         "noEmit": true,
         "jsx": "preserve",
 
-        /* Linting */
         "strict": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
-        "noUncheckedSideEffectImports": true
+        "noUncheckedSideEffectImports": true,
+
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["src/*"]
+        }
     },
     "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
     "references": [{ "path": "./tsconfig.node.json" }]
