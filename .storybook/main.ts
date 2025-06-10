@@ -13,5 +13,15 @@ const config: StorybookConfig = {
         name: "@storybook/vue3-vite",
         options: {},
     },
+    typescript: {
+        check: false,
+    },
+    viteFinal: async (config) => {
+        config.plugins = config.plugins?.filter(plugin =>
+            !(plugin && typeof plugin === 'object' && plugin.name === 'storybook:vue-docgen-plugin')
+        );
+        return config;
+    },
 };
+
 export default config;
