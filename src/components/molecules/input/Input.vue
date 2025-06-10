@@ -24,28 +24,26 @@
 </script>
 
 <template>
-    <div class="form-group-wrapper">
-        <div class="input-wrapper">
-            <input
-                :id="props.id"
-                :type="isPasswordVisible"
-                :name="props.id"
-                :disabled="props.isDisabled"
-                :placeholder="props.placeholder"
-                :class="{ isPasswordInput: isPassword }"
-                v-bind="$attrs"
-            />
-            <button
-                v-if="isPassword"
-                type="button"
-                class="password-input-type-toggle"
-                :tabindex="-1"
-                @click="showPassword = !showPassword"
-            >
-                <Eye v-if="showPassword" :size="16" />
-                <EyeOff v-else :size="16" />
-            </button>
-        </div>
+    <div class="input-wrapper">
+        <input
+            :id="props.id"
+            :type="isPasswordVisible"
+            :name="props.id"
+            :disabled="props.isDisabled"
+            :placeholder="props.placeholder"
+            :class="{ isPasswordInput: isPassword }"
+            v-bind="$attrs"
+        />
+        <button
+            v-if="isPassword"
+            type="button"
+            class="password-input-type-toggle"
+            :tabindex="-1"
+            @click="showPassword = !showPassword"
+        >
+            <Eye v-if="showPassword" :size="16" />
+            <EyeOff v-else :size="16" />
+        </button>
     </div>
 </template>
 
