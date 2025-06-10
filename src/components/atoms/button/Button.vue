@@ -78,13 +78,13 @@
         return `${base} ${shadowClass.value}`.trim();
     });
 
-    const emit = defineEmits<{
-        click: [Event];
+    const emits = defineEmits<{
+        click: [];
     }>();
 
-    const handleClick = (Event: any) => {
+    const handleClick = () => {
         if (!isButtonDisabled.value) {
-            emit("click", Event);
+            emits("click");
         }
     };
 </script>
