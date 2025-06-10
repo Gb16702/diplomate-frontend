@@ -33,6 +33,7 @@ body {
 }
 
 button {
+    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,5 +43,26 @@ button {
 
     &.disabled {
         cursor: not-allowed;
+    }
+}
+
+input {
+    font-family: var(--font-space-grotesk), sans-serif;
+    width: 100%;
+    height: 100%;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+
+    &::placeholder {
+        color: var(--color-gray);
     }
 }
