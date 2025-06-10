@@ -1,14 +1,14 @@
 <script setup lang="ts">
     export type IconWrapperProps = {
-        size?: string;
+        size?: number;
         fill?: string;
         stroke?: string;
         width?: string;
         classes?: string;
     };
 
-    withDefaults(defineProps<IconWrapperProps>(), {
-        size: "16",
+    const props = withDefaults(defineProps<IconWrapperProps>(), {
+        size: 16,
         fill: "none",
         stroke: "currentColor",
         width: "2",
@@ -19,15 +19,15 @@
 <template>
     <svg
         xmlns="http://www.w3.org/2000/svg"
-        :width="size"
-        :height="size"
+        :width="props.size"
+        :height="props.size"
         viewBox="0 0 24 24"
-        :fill="fill"
-        :stroke="stroke"
-        :stroke-width="width"
+        :fill="props.fill"
+        :stroke="props.stroke"
+        :stroke-width="props.width"
         stroke-linecap="round"
         stroke-linejoin="round"
-        :class="classes"
+        :class="props.classes"
         role="img"
     >
         <slot />
