@@ -16,9 +16,14 @@ const config: StorybookConfig = {
     typescript: {
         check: false,
     },
-    viteFinal: async (config) => {
-        config.plugins = config.plugins?.filter(plugin =>
-            !(plugin && typeof plugin === 'object' && plugin.name === 'storybook:vue-docgen-plugin')
+    viteFinal: async config => {
+        config.plugins = config.plugins?.filter(
+            plugin =>
+                !(
+                    plugin &&
+                    typeof plugin === "object" &&
+                    plugin.name === "storybook:vue-docgen-plugin"
+                )
         );
         return config;
     },
