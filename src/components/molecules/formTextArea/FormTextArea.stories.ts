@@ -10,10 +10,11 @@ const meta: Meta<typeof FormTextArea> = {
     argTypes: {
         placeholder: {
             control: "text",
-            description: "textarea placeholder",
+            description: "Textarea placeholder",
         },
         maxLength: {
             control: "number",
+            description: "Textarea maxlength",
         },
     },
 };
