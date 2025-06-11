@@ -3,7 +3,7 @@
     import EyeOff from "../../atoms/icons/external/EyeOff.vue";
     import Eye from "../../atoms/icons/external/Eye.vue";
 
-    type InputProps = {
+    type FormInputProps = {
         id?: string;
         type?: string;
         placeholder?: string;
@@ -12,7 +12,7 @@
 
     const showPassword = ref(false);
 
-    const props = withDefaults(defineProps<InputProps>(), {
+    const props = withDefaults(defineProps<FormInputProps>(), {
         type: "text",
         isDisabled: false,
     });
@@ -24,7 +24,7 @@
 </script>
 
 <template>
-    <div class="input-wrapper">
+    <div class="form-input-wrapper">
         <input
             :id="props.id"
             :type="isPasswordVisible"
@@ -48,7 +48,7 @@
 </template>
 
 <style>
-    .input-wrapper {
+    .form-input-wrapper {
         position: relative;
         width: 350px;
         height: 44px;

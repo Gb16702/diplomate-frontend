@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
 import FormGroup from "./FormGroup.vue";
-import Input from "../../molecules/input/Input.vue";
+import FormInput from "../../molecules/formInput/FormInput.vue";
 import FormLabel from "../../atoms/formLabel/FormLabel.vue";
 import HelperText from "../../atoms/helperText/HelperText.vue";
 
@@ -30,11 +30,11 @@ export default meta;
 
 export const Default = {
     render: () => ({
-        components: { FormGroup, FormLabel, Input },
+        components: { FormGroup, FormLabel, FormInput },
         template: `
             <FormGroup>
                 <FormLabel htmlFor="email">Email address</FormLabel>
-                <Input id="email" type="text" placeholder="you@example.com" />
+                <FormInput id="email" type="text" placeholder="you@example.com" />
             </FormGroup>
         `,
     }),
@@ -42,7 +42,7 @@ export const Default = {
 
 export const WithHelperText = {
     render: () => ({
-        components: { FormGroup, FormLabel, Input, HelperText },
+        components: { FormGroup, FormLabel, FormInput, HelperText },
         template: `
             <FormGroup>
                 <FormLabel htmlFor="email">Email address</FormLabel>
@@ -55,7 +55,7 @@ export const WithHelperText = {
 
 export const RequiredWithHelperText = {
     render: () => ({
-        components: { FormGroup, FormLabel, Input, HelperText },
+        components: { FormGroup, FormLabel, FormInput, HelperText },
         template: `
             <FormGroup>
                 <FormLabel htmlFor="password" required>Create a Password</FormLabel>

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
-import Input from "./Input.vue";
+import FormInput from "./FormInput.vue";
 
 const meta = {
-    title: "Molecules/Input",
-    component: Input,
+    title: "Molecules/FormInput",
+    component: FormInput,
     parameters: {
         docs: {
             description: {
@@ -11,7 +11,7 @@ const meta = {
             },
         },
     },
-} satisfies Meta<typeof Input>;
+} satisfies Meta<typeof FormInput>;
 
 export default meta;
 
@@ -41,4 +41,4 @@ export const Base = {
         placeholder: "socrates@gmail.com",
         isDisabled: false,
     },
-} satisfies StoryObj<typeof Input>;
+} satisfies StoryObj<typeof FormInput>;
