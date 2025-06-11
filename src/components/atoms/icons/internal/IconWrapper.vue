@@ -1,17 +1,17 @@
 <script setup lang="ts">
     export type IconWrapperProps = {
         size?: number;
+        width?: number;
         fill?: string;
         stroke?: string;
-        width?: string;
         classes?: string;
     };
 
     const props = withDefaults(defineProps<IconWrapperProps>(), {
         size: 16,
+        width: 2,
         fill: "none",
         stroke: "currentColor",
-        width: "2",
         classes: "",
     });
 </script>
