@@ -46,7 +46,7 @@ export const WithHelperText = {
         template: `
             <FormGroup>
                 <FormLabel htmlFor="email">Email address</FormLabel>
-                <Input id="email" type="email" placeholder="you@example.com" />
+                <FormInput id="email" type="email" placeholder="you@example.com" />
                 <HelperText>We'll only use this for spam</HelperText>
             </FormGroup>
         `,
@@ -59,7 +59,7 @@ export const RequiredWithHelperText = {
         template: `
             <FormGroup>
                 <FormLabel htmlFor="password" required>Create a Password</FormLabel>
-                <Input id="password" type="password" placeholder="••••••••" />
+                <FormInput id="password" type="password" placeholder="••••••••" />
                 <HelperText>Must be at least 8 characters</HelperText>
             </FormGroup>
         `,
