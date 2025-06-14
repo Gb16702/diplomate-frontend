@@ -12,5 +12,6 @@
         color: var(--color-gray-dark);
         font-weight: 300;
         font-family: var(--font-space-grotesk), sans-serif;
+        margin: 5px 0 0;
     }
 </style>
