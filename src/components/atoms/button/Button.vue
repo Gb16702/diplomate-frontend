@@ -20,12 +20,12 @@
             },
         },
         compoundVariants: [
-            { variant: "contained", color: "primary", className: "btn-contained-primary" },
-            { variant: "contained", color: "secondary", className: "btn-contained-secondary" },
-            { variant: "outlined", color: "primary", className: "btn-outlined-primary" },
-            { variant: "outlined", color: "secondary", className: "btn-outlined-secondary" },
-            { variant: "text", color: "primary", className: "btn-text-primary" },
-            { variant: "text", color: "secondary", className: "btn-text-secondary" },
+            { variant: "contained", color: "primary", class: "btn-contained-primary" },
+            { variant: "contained", color: "secondary", class: "btn-contained-secondary" },
+            { variant: "outlined", color: "primary", class: "btn-outlined-primary" },
+            { variant: "outlined", color: "secondary", class: "btn-outlined-secondary" },
+            { variant: "text", color: "primary", class: "btn-text-primary" },
+            { variant: "text", color: "secondary", class: "btn-text-secondary" },
         ],
         defaultVariants: {
             variant: "contained",
