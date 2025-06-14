@@ -47,7 +47,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
     .form-input-wrapper {
         position: relative;
         width: 350px;
