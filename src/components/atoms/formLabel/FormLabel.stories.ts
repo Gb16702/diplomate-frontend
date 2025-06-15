@@ -28,13 +28,23 @@ export const Base = {
         },
         default: {
             control: "text",
-            description: "Whether the label is required or not",
+            description: "Label text content",
         },
     },
-
     args: {
         required: false,
         inputId: "username",
-        default: "username",
+        default: "Username",
     },
+    render: (args) => ({
+        components: { FormLabel },
+        setup() {
+            return { args };
+        },
+        template: `
+            <FormLabel :required="args.required" :input-id="args.inputId">
+                {{ args.default }}
+            </FormLabel>
+        `,
+    }),
 } satisfies StoryObj<typeof FormLabel>;
