@@ -36,7 +36,7 @@ export const Base = {
         inputId: "username",
         default: "Username",
     },
-    render: (args) => ({
+    render: args => ({
         components: { FormLabel },
         setup() {
             return { args };
