@@ -6,27 +6,19 @@
     const buttonVariants = cva("btn-base", {
         variants: {
             variant: {
-                contained: "",
-                outlined: "btn-outlined",
-                text: "btn-text",
+                contained: "contained",
+                outlined: "outlined",
+                text: "text",
             },
             color: {
-                primary: "",
-                secondary: "",
+                primary: "primary",
+                secondary: "secondary",
             },
             isLoading: {
-                true: "btn-loading",
+                true: "loading",
                 false: "",
             },
         },
-        compoundVariants: [
-            { variant: "contained", color: "primary", class: "btn-contained-primary" },
-            { variant: "contained", color: "secondary", class: "btn-contained-secondary" },
-            { variant: "outlined", color: "primary", class: "btn-outlined-primary" },
-            { variant: "outlined", color: "secondary", class: "btn-outlined-secondary" },
-            { variant: "text", color: "primary", class: "btn-text-primary" },
-            { variant: "text", color: "secondary", class: "btn-text-secondary" },
-        ],
         defaultVariants: {
             variant: "contained",
             color: "primary",
@@ -58,7 +50,7 @@
         if (!props.withShadow || props.variant !== "contained") {
             return "";
         }
-        return props.color === "primary" ? "btn-shadow-primary" : "btn-shadow-secondary";
+        return props.color === "primary" ? "shadow-primary" : "shadow-secondary";
     });
 
     const loaderColor = computed(() => {
@@ -124,63 +116,63 @@
         opacity: 0.6;
     }
 
-    .btn-contained-primary {
+    .btn-base.contained.primary {
         background-color: var(--color-orange);
         color: var(--color-cream);
     }
 
-    .btn-contained-primary:not(:disabled):hover {
+    .btn-base.contained.primary:not(:disabled):hover {
         background-color: var(--color-orange-dark);
     }
 
-    .btn-contained-secondary {
+    .btn-base.contained.secondary {
         background-color: var(--color-black);
         color: var(--color-cream);
     }
 
-    .btn-contained-secondary:not(:disabled):hover {
+    .btn-base.contained.secondary:not(:disabled):hover {
         background-color: rgba(4, 4, 2, 0.9);
     }
 
-    .btn-outlined {
+    .btn-base.outlined {
         background-color: transparent;
         border: 2px solid;
     }
 
-    .btn-outlined-primary {
+    .btn-base.outlined.primary {
         border-color: var(--color-orange);
         color: var(--color-orange);
     }
 
-    .btn-outlined-secondary {
+    .btn-base.outlined.secondary {
         border-color: var(--color-black);
         color: var(--color-black);
     }
 
-    .btn-text {
+    .btn-base.text {
         background-color: transparent;
         border: none;
         padding: 8px 16px;
     }
 
-    .btn-text-primary {
+    .btn-base.text.primary {
         color: var(--color-orange);
     }
 
-    .btn-text-secondary {
+    .btn-base.text.secondary {
         color: var(--color-black);
     }
 
-    .btn-shadow-primary {
+    .btn-base.shadow-primary {
         box-shadow: 0 4px 14px 0 rgba(198, 81, 34, 0.4);
     }
 
-    .btn-shadow-secondary {
+    .btn-base.shadow-secondary {
         box-shadow: 0 4px 14px 0 rgba(4, 4, 2, 0.4);
     }
 
-    .btn-loading {
-        color: transparent;
+    .loading {
+        color: transparent !important;
     }
 
     .loader-container {
