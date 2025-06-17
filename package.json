@@ -23,6 +23,7 @@
         "@fontsource/playfair-display": "^5.2.6",
         "@fontsource/rubik": "^5.2.6",
         "@fontsource/space-grotesk": "^5.2.8",
+        "@storybook/test": "^8.6.14",
         "class-variance-authority": "^0.7.1",
         "compression": "^1.8.0",
         "express": "^5.0.1",
