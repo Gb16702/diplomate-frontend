@@ -54,7 +54,7 @@
         height: 44px;
         border-radius: 50px;
         overflow: hidden;
-        outline: 1px solid var(--color-gray-light);
+        outline: 1px solid var(--color-gray-lighter);
         background-color: white;
         display: flex;
         align-items: center;
