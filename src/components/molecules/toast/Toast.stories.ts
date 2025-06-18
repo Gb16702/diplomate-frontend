@@ -52,12 +52,7 @@ const meta = {
     args: {
         onClose: fn(),
         onAction: fn(),
-    },
-    decorators: [
-        () => ({
-            template: `<div class="form-group-wrapper"><story /></div>`,
-        }),
-    ],
+    }
 } satisfies Meta<typeof Toast>;
 
 export default meta;
