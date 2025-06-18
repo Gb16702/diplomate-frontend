@@ -7,6 +7,7 @@ import HelperText from "../../atoms/helperText/HelperText.vue";
 const meta = {
     title: "Atoms/FormGroup",
     component: FormGroup,
+    tags: ["autodocs"],
     parameters: {
         layout: "centered",
         docs: {
