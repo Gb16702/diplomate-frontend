@@ -101,6 +101,7 @@
     .btn-base {
         font-family: var(--font-dm-sans), sans-serif;
         font-weight: 500;
+        min-width: 100px;
         padding: 12px 24px;
         border: none;
         cursor: pointer;
