@@ -77,3 +77,64 @@ export const Descriptive: Story = {
         visible: true,
     },
 } satisfies StoryObj<typeof Toast>;
+
+export const ShortAction: Story = {
+    args: {
+        title: "File uploaded successfully",
+        type: "action",
+        variant: "info",
+        actionLabel: "Open",
+        visible: true,
+    },
+} satisfies StoryObj<typeof Toast>;
+
+export const DescriptiveAction: Story = {
+    args: {
+        title: "File uploaded successfully",
+        description: "Your document has been saved to the cloud",
+        type: "action",
+        variant: "info",
+        actionLabel: "Open",
+        visible: true,
+    },
+} satisfies StoryObj<typeof Toast>;
+
+export const ShortError: Story = {
+    args: {
+        title: "Uh oh! Something went wrong.",
+        type: "short",
+        variant: "error",
+        visible: true,
+    }
+}
+
+export const DescriptiveError: Story = {
+    args: {
+        title: "Uh oh! Something went wrong.",
+        description: "There was a problem with your request.",
+        type: "descriptive",
+        variant: "error",
+        visible: true,
+    }
+}
+
+export const ActionShortError: Story = {
+    args: {
+        title: "Uh oh! Something went wrong.",
+        type: "action",
+        variant: "error",
+        actionLabel: "Open",
+        visible: true,
+    }
+}
+
+export const ActionDescriptiveError: Story = {
+    args: {
+        title: "Uh oh! Something went wrong.",
+        description: "There was a problem with your request.",
+        type: "action",
+        variant: "error",
+        actionLabel: "Retry",
+        visible: true,
+    }
+}

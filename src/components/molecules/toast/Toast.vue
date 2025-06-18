@@ -2,12 +2,12 @@
     import { cva } from "class-variance-authority";
 
     type ToastProps = {
-        title: string;
-        description?: string;
-        type: "short" | "descriptive" | "action";
-        variant: "info" | "error";
-        visible: boolean;
-        actionLabel?: string;
+      title: string;
+      description?: string;
+      type: "short" | "descriptive" | "action";
+      variant: "info" | "error";
+      visible: boolean;
+      actionLabel?: string;
     };
 
     const props = withDefaults(defineProps<ToastProps>(), {
@@ -69,9 +69,7 @@
                 {{ props.title }}
             </h4>
             <p
-                v-if="
-                    (props.type === 'descriptive' || props.type === 'action') && props.description
-                "
+                v-if="(props.type === 'descriptive' || props.type === 'action') && props.description"
                 class="toast__description"
             >
                 {{ props.description }}
@@ -90,36 +88,67 @@
 
 <style scoped>
     .toast {
-        font-family: var(--font-rubik), sans-serif;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
         font-size: 14px;
         border-radius: 8px;
-        min-height: 45px;
-        padding: 5px 12px;
+        padding: 18px;
         border: 1px solid var(--color-gray-lighter);
         display: flex;
         flex-direction: column;
         justify-content: center;
         min-width: 350px;
+        min-height: 40px;
+        height: auto;
+        background-color: white;
     }
 
     .toast__title {
-        font-weight: 400;
         margin: 0;
+        font-weight: 600;
     }
 
     .toast__description {
-        margin: 5px 0 0;
+        margin: 3px 0 0;
+        font-weight: 400;
     }
 
-    .toast--short {
-        height: 45px;
-    }
-
-    .toast--descriptive {
-        height: 60px;
+    .toast__action {
+      min-width: 40px;
+      height: 28px;
+      padding: 4px 10px;
+      color: white;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: background-color 0.15s ease;
     }
 
     .toast--info {
-        background-color: white;
+      .toast__description {
+        color: var(--color-gray-light);
+      }
+    }
+
+    .toast--info .toast__action {
+      background-color: var(--color-black);
+
+      &:hover {
+        background-color: var(--color-orange-dark);
+      }
+    }
+
+    .toast--error .toast__action {
+      background-color: var(--color-red);
+      color: white;
+
+      &:hover {
+        background-color: var(--color-red-dark);
+      }
+    }
+
+    .toast--action {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      column-gap: 28px;
     }
 </style>
