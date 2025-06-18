@@ -99,6 +99,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        min-width: 350px;
     }
 
     .toast__title {
