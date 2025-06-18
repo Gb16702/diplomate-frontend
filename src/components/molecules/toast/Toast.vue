@@ -1,7 +1,7 @@
 <script setup lang="ts">
     import { cva } from "class-variance-authority";
 
-    type ToastProps = {
+    export type ToastProps = {
         title: string;
         description?: string;
         type: "short" | "descriptive" | "action";
@@ -138,10 +138,8 @@
         transition: background-color 0.15s ease;
     }
 
-    .toast--info {
-        .toast__description {
-            color: var(--color-gray-light);
-        }
+    .toast--info .toast__description {
+        color: var(--color-gray-light);
     }
 
     .toast--info .toast__action {
