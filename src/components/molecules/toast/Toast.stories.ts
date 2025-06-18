@@ -52,7 +52,7 @@ const meta = {
     args: {
         onClose: fn(),
         onAction: fn(),
-    }
+    },
 } satisfies Meta<typeof Toast>;
 
 export default meta;
@@ -105,8 +105,8 @@ export const ShortError: Story = {
         type: "short",
         variant: "error",
         visible: true,
-    }
-}
+    },
+};
 
 export const DescriptiveError: Story = {
     args: {
@@ -115,8 +115,8 @@ export const DescriptiveError: Story = {
         type: "descriptive",
         variant: "error",
         visible: true,
-    }
-}
+    },
+};
 
 export const ActionShortError: Story = {
     args: {
@@ -125,8 +125,8 @@ export const ActionShortError: Story = {
         variant: "error",
         actionLabel: "Open",
         visible: true,
-    }
-}
+    },
+};
 
 export const ActionDescriptiveError: Story = {
     args: {
@@ -136,5 +136,5 @@ export const ActionDescriptiveError: Story = {
         variant: "error",
         actionLabel: "Retry",
         visible: true,
-    }
-}
+    },
+};
