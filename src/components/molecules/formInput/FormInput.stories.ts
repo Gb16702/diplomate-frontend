@@ -5,6 +5,7 @@ const meta = {
     title: "Molecules/FormInput",
     component: FormInput,
     parameters: {
+        layout: "centered",
         docs: {
             description: {
                 component: "Customizable input",

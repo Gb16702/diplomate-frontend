@@ -5,6 +5,9 @@ const meta = {
     title: "Atoms/Loader",
     component: Loader,
     tags: ["autodocs"],
+    parameters: {
+        layout: "centered",
+    },
     argTypes: {
         stroke: {
             control: "color",
