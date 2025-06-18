@@ -99,25 +99,6 @@ export const DescriptiveAction: Story = {
     },
 } satisfies StoryObj<typeof Toast>;
 
-export const ShortError: Story = {
-    args: {
-        title: "Uh oh! Something went wrong.",
-        type: "short",
-        variant: "error",
-        visible: true,
-    },
-};
-
-export const DescriptiveError: Story = {
-    args: {
-        title: "Uh oh! Something went wrong.",
-        description: "There was a problem with your request.",
-        type: "descriptive",
-        variant: "error",
-        visible: true,
-    },
-};
-
 export const ActionShortError: Story = {
     args: {
         title: "Uh oh! Something went wrong.",
