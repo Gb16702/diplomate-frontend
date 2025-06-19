@@ -1,0 +1,79 @@
+name: Bug Report
+description: Report a bug for the team to fix
+title: "[BUG] "
+labels: ["type: bug", "needs review"]
+body:
+    - type: textarea
+      id: description
+      attributes:
+          label: Bug Description
+          description: What's the issue?
+          placeholder: Describe what's not working...
+      validations:
+          required: true
+
+    - type: textarea
+      id: reproduction
+      attributes:
+          label: Steps to Reproduce
+          description: How can we reproduce this bug?
+          placeholder: |
+              1. Go to '...'
+              2. Click on '...'
+              3. See error
+      validations:
+          required: true
+
+    - type: textarea
+      id: expected
+      attributes:
+          label: Expected Behavior
+          description: What should happen instead?
+          placeholder: What's the correct behavior?
+      validations:
+          required: true
+
+    - type: dropdown
+      id: environment
+      attributes:
+          label: Environment
+          description: Where did this happen?
+          options:
+              - Development (local)
+              - Staging
+              - Production
+      validations:
+          required: true
+
+    - type: dropdown
+      id: browser
+      attributes:
+          label: Browser
+          description: Which browser?
+          options:
+              - Chrome
+              - Firefox
+              - Safari
+              - Edge
+      validations:
+          required: true
+
+    - type: dropdown
+      id: priority
+      attributes:
+          label: Priority
+          description: How urgent is this?
+          options:
+              - Low - Can wait
+              - Medium - Should fix soon
+              - High - Fix ASAP
+              - Critical - Blocking work
+      validations:
+          required: true
+
+    - type: textarea
+      id: additional
+      attributes:
+          label: Additional Info
+          description: Screenshots, console errors, etc.
+          placeholder: Any other helpful information...
