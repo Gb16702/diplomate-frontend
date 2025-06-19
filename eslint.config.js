@@ -3,6 +3,7 @@ import vue from "eslint-plugin-vue";
 import typescript from "@typescript-eslint/eslint-plugin";
 import typescriptParser from "@typescript-eslint/parser";
 import vueParser from "vue-eslint-parser";
+import globals from "globals";
 
 export default [
     js.configs.recommended,
@@ -15,6 +16,10 @@ export default [
                 parser: typescriptParser,
                 ecmaVersion: "latest",
                 sourceType: "module",
+            },
+            globals: {
+                ...globals.browser,
+                ...globals.node,
             },
         },
         plugins: {
