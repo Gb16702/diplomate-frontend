@@ -22,7 +22,7 @@ const preview: Preview = {
         },
     },
     initialGlobals: {
-        backgrounds: { value: "Cream" },
+        backgrounds: { value: "cream" },
     },
 };
 
