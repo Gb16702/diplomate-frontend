@@ -5,7 +5,7 @@ on:
         workflows: ["Code Quality"]
         types:
             - completed
-        branches: [ main ]
+        branches: [main]
 
 jobs:
     deploy-notifications:
