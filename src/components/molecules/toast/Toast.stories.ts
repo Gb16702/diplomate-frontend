@@ -115,7 +115,7 @@ export const ActionDescriptiveError: Story = {
         description: "There was a problem with your request.",
         type: "action",
         variant: "error",
-        actionLabel: "Retry",
+        actionLabel: "Try again",
         visible: true,
     },
 };
