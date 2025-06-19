@@ -5,6 +5,7 @@ import Toast from "./Toast.vue";
 const meta = {
     title: "Molecules/Toast",
     component: Toast,
+    tags: ["autodocs"],
     parameters: {
         layout: "centered",
         docs: {
@@ -14,7 +15,6 @@ const meta = {
             },
         },
     },
-    tags: ["autodocs"],
     argTypes: {
         type: {
             control: "select",

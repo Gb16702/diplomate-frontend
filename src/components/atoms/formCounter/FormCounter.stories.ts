@@ -4,6 +4,7 @@ import FormCounter from "./FormCounter.vue";
 const meta: Meta<typeof FormCounter> = {
     title: "Atoms/FormCounter",
     component: FormCounter,
+    tags: ["autodocs"],
     parameters: {
         layout: "centered",
     },

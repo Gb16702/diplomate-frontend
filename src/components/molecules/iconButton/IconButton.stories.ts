@@ -4,6 +4,7 @@ import IconButton from "./IconButton.vue";
 const meta: Meta<typeof IconButton> = {
     title: "Molecules/IconButton",
     component: IconButton,
+    tags: ["autodocs"],
     parameters: {
         layout: "centered",
     },

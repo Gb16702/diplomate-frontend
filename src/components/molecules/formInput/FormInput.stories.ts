@@ -4,6 +4,7 @@ import FormInput from "./FormInput.vue";
 const meta = {
     title: "Molecules/FormInput",
     component: FormInput,
+    tags: ["autodocs"],
     parameters: {
         layout: "centered",
         docs: {

@@ -4,6 +4,7 @@ import FormTextArea from "./FormTextArea.vue";
 const meta: Meta<typeof FormTextArea> = {
     title: "Molecules/FormTextArea",
     component: FormTextArea,
+    tags: ["autodocs"],
     parameters: {
         layout: "centered",
     },
