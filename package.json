@@ -27,7 +27,8 @@
         "format:check": "prettier --check .",
         "lint": "eslint src --ext .vue,.js,.ts",
         "lint:fix": "eslint src --ext .vue,.js,.ts --fix",
-        "fix": "pnpm run lint:fix && pnpm run format"
+        "fix": "pnpm run lint:fix && pnpm run format",
+        "type-check": "vue-tsc --noEmit"
     },
     "dependencies": {
         "@fontsource/dm-sans": "^5.2.6",
