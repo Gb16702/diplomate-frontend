@@ -3,6 +3,8 @@
     "private": true,
     "version": "0.0.0",
     "type": "module",
+    "description": "Frontend application for Diplomate platform",
+    "license": "UNLICENSED",
     "engines": {
         "node": ">=18.0.0",
         "pnpm": ">=8.6.1"
