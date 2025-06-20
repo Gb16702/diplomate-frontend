@@ -51,5 +51,3 @@ export const EmptyPlaceholder: Story = {
         maxLength: 200,
     },
 };
-
-

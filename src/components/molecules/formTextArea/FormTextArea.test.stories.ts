@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
-import { expect, userEvent, within } from '@storybook/test';
+import { expect, userEvent, within } from "@storybook/test";
 import FormTextArea from "./FormTextArea.vue";
 
 const meta: Meta<typeof FormTextArea> = {
