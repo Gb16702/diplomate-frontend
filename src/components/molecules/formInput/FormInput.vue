@@ -66,7 +66,7 @@
         }
 
         &:has(input:disabled) {
-            background-color: var(--color-gray-light);
+            background-color: var(--color-gray-lighter);
         }
 
         button {
@@ -77,6 +77,10 @@
             color: var(--color-gray-light);
             background-color: transparent;
             padding: 7px;
+
+            &:focus {
+                outline: 1px solid var(--color-orange);
+            }
         }
     }
 </style>
