@@ -133,9 +133,9 @@
     .toast__action {
         min-width: 40px;
         height: 28px;
-        padding: 4px 10px;
+        padding: 4px 12px;
         color: white;
-        border-radius: 4px;
+        border-radius: 50px;
         font-weight: 500;
         transition: background-color 0.15s ease;
     }
