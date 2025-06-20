@@ -23,8 +23,6 @@ jobs:
               uses: slackapi/slack-github-action@v1.24.0
               with:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
-                  unfurl-links: false
-                  unfurl-media: false
                   payload: |
                       {
                         "blocks": [
@@ -65,7 +63,7 @@ jobs:
                             "type": "section",
                             "text": {
                               "type": "mrkdwn",
-                              "text": "*`PR`*           ${{ github.event.pull_request.title }} ${{ github.event.pull_request.number }}"
+                              "text": "*`PR`*            ${{ github.event.pull_request.title }} ${{ github.event.pull_request.number }}"
                             }
                           },
                           {
@@ -79,7 +77,7 @@ jobs:
                             "type": "section",
                             "text": {
                               "type": "mrkdwn",
-                              "text": "*`Commit`*    <${{ github.event.pull_request.html_url }}/commits/${{ github.event.pull_request.head.sha }}|${{ steps.short-sha.outputs.SHORT_SHA }}>"
+                              "text": "*`Commit`*     <${{ github.event.pull_request.html_url }}/commits/${{ github.event.pull_request.head.sha }}|${{ steps.short-sha.outputs.SHORT_SHA }}>"
                             }
                           },
                           {
@@ -107,14 +105,11 @@ jobs:
                             }
                           },
                           {
-                              "type": "actions",
-                              "elements": [
-                                  {
-                                      "type": "button",
-                                      "text": {"type": "plain_text", "text": "View PR #${{ github.event.pull_request.number }}"},
-                                      "url": "${{ github.event.pull_request.html_url }}"
-                                  }
-                              ]
+                              "type": "section",
+                              "text": {
+                                  "type": "mrkdwn",
+                                  "text": "By clicking <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|*here*>, you will be able to view the *workflow run* and *download* the *test report*"
+                              }
                           }
                         ]
                       }
