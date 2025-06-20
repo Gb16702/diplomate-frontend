@@ -4,10 +4,12 @@ import typescript from "@typescript-eslint/eslint-plugin";
 import typescriptParser from "@typescript-eslint/parser";
 import vueParser from "vue-eslint-parser";
 import globals from "globals";
+import eslintConfigPrettier from "eslint-config-prettier";
 
 export default [
     js.configs.recommended,
     ...vue.configs["flat/recommended"],
+    eslintConfigPrettier,
     {
         files: ["src/**/*.{js,ts,vue}"],
         languageOptions: {

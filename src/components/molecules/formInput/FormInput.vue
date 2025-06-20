@@ -33,7 +33,7 @@
             :placeholder="props.placeholder"
             :class="{ isPasswordInput: isPassword }"
             v-bind="$attrs"
-        >
+        />
         <button
             v-if="isPassword"
             type="button"
