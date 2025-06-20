@@ -63,7 +63,7 @@ jobs:
                             "type": "section",
                             "text": {
                               "type": "mrkdwn",
-                              "text": "*`PR`*            ${{ github.event.pull_request.title }} ${{ github.event.pull_request.number }}"
+                              "text": "*`PR`*            ${{ github.event.pull_request.title }} (#${{ github.event.pull_request.number }})"
                             }
                           },
                           {
@@ -108,7 +108,7 @@ jobs:
                               "type": "section",
                               "text": {
                                   "type": "mrkdwn",
-                                  "text": "By clicking <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|*here*>, you will be able to view the *workflow run* and *download* the *test report*"
+                                  "text": "By clicking <${{ github.event.pull_request.html_url }}|*here*>, you will be able to have a detailed view about the merged pull request."
                               }
                           }
                         ]
