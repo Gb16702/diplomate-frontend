@@ -1,47 +1,117 @@
 name: Frontend Ship
 
 on:
-    workflow_run:
-        workflows: ["Code Quality"]
-        types:
-            - completed
+    pull_request:
+        types: [closed]
         branches: [main]
 
 jobs:
     deploy-notifications:
         runs-on: ubuntu-latest
-        if: github.event.workflow_run.conclusion != 'cancelled'
+        if: github.event.pull_request.merged == true
 
         steps:
-            - name: Check Quality Workflow Success
-              id: quality_check
-              run: |
-                  if [ "${{ github.event.workflow_run.conclusion }}" == "success" ]; then
-                    echo "quality_passed=true" >> $GITHUB_OUTPUT
-                  else
-                    echo "quality_passed=false" >> $GITHUB_OUTPUT
-                  fi
+            - name: Get current time (Europe/Paris)
+              id: current-time
+              run: echo "TIME=$(TZ='Europe/Paris' date +'%d/%m/%Y at %H:%M')" >> $GITHUB_OUTPUT
+
+            - name: Get short SHA
+              id: short-sha
+              run: echo "SHORT_SHA=$(echo ${{ github.event.pull_request.head.sha }} | cut -c1-7)" >> $GITHUB_OUTPUT
 
             - name: Slack Notification - Ship Success
-              if: steps.quality_check.outputs.quality_passed == 'true'
               uses: slackapi/slack-github-action@v1.24.0
               with:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
                   payload: |
                       {
-                        "text": "Frontend Ship Success - ${{ github.event.workflow_run.head_commit.author.name }}"
-                      }
-              env:
-                  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-
-            - name: Slack Notification - Ship Failure
-              if: steps.quality_check.outputs.quality_passed == 'false'
-              uses: slackapi/slack-github-action@v1.24.0
-              with:
-                  channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
-                  payload: |
-                      {
-                        "text": "Frontend Ship Failed - ${{ github.event.workflow_run.head_commit.author.name }}"
+                        "blocks": [
+                          {
+                            "type": "header",
+                            "text": {
+                              "type": "plain_text",
+                              "text": "Production-ready updates added to main"
+                            }
+                          },
+                          {
+                            "type": "context",
+                            "elements": [
+                              {
+                                "text": "*Merged* ${{ steps.current-time.outputs.TIME }}",
+                                "type": "mrkdwn"
+                              }
+                            ]
+                          },
+                          {
+                            "type": "divider"
+                          },
+                          {
+                            "type": "section",
+                            "text": {
+                              "type": "mrkdwn",
+                              "text": "*Details*"
+                            }
+                          },
+                          {
+                            "type": "section",
+                            "text": {
+                              "type": "mrkdwn",
+                              "text": "*`Developer`*   ${{ github.event.pull_request.user.login }}"
+                            }
+                          },
+                          {
+                            "type": "section",
+                            "text": {
+                              "type": "mrkdwn",
+                              "text": "*`PR`*         <${{ github.event.pull_request.html_url }}|#${{ github.event.pull_request.number }}> - ${{ github.event.pull_request.title }}"
+                            }
+                          },
+                          {
+                            "type": "section",
+                            "text": {
+                              "type": "mrkdwn",
+                              "text": "*`Changes`*     +${{ github.event.pull_request.additions }} -${{ github.event.pull_request.deletions }} (${{ github.event.pull_request.changed_files }} files)"
+                            }
+                          },
+                          {
+                            "type": "section",
+                            "text": {
+                              "type": "mrkdwn",
+                              "text": "*`Commit`*      <${{ github.event.pull_request.html_url }}/commits/${{ github.event.pull_request.head.sha }}|${{ steps.short-sha.outputs.SHORT_SHA }}>"
+                            }
+                          },
+                          {
+                            "type": "divider"
+                          },
+                          {
+                            "type": "section",
+                            "text": {
+                              "type": "mrkdwn",
+                              "text": "*Status*"
+                            }
+                          },
+                          {
+                            "type": "section",
+                            "text": {
+                              "type": "mrkdwn",
+                              "text": "*`Impact`*      ${{ github.event.pull_request.additions > 200 && 'Large' || github.event.pull_request.additions < 50 && 'Small' || 'Medium' }} changes"
+                            }
+                          },
+                          {
+                            "type": "section",
+                            "text": {
+                              "type": "mrkdwn",
+                              "text": "*`Status`*      Ready for staging deployment"
+                            }
+                          },
+                          {
+                            "type": "section",
+                            "text": {
+                              "type": "mrkdwn",
+                              "text": "By clicking <${{ github.event.pull_request.html_url }}|*here*>, you will be able to view the *pull request* and *review changes*"
+                            }
+                          }
+                        ]
                       }
               env:
                   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
