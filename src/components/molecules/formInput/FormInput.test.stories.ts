@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
-import { expect, userEvent, within } from '@storybook/test';
+import { expect, userEvent, within } from "@storybook/test";
 import FormInput from "./FormInput.vue";
 
 const meta: Meta<typeof FormInput> = {
@@ -43,7 +43,7 @@ export const TextInput: Story = {
     },
     play: async ({ canvasElement }) => {
         const canvas = within(canvasElement);
-        const input = canvas.getByRole('textbox');
+        const input = canvas.getByRole("textbox");
 
         await expect(input).toHaveAttribute("placeholder", "Enter your username");
 
