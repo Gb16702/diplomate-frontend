@@ -1,6 +1,7 @@
 .output/
 
 node_modules/
+coverage/
 
 .DS_Store
 Thumbs.db
@@ -12,3 +13,8 @@ Thumbs.db
 *.temp
 
 storybook-static/
+
+pnpm-lock.yaml
+
+.env
+.env.*
