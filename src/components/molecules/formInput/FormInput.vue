@@ -78,9 +78,9 @@
             background-color: transparent;
             padding: 7px;
 
-          &:focus {
-            outline: 1px solid var(--color-orange);
-          }
+            &:focus {
+                outline: 1px solid var(--color-orange);
+            }
         }
     }
 </style>
