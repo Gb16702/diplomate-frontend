@@ -19,7 +19,6 @@ Closes #(issue_number)
 
 - [ ] My code follows the project's style guidelines
 - [ ] I have performed a self-review of my code
-- [ ] I have made corresponding changes to the documentation
 - [ ] My changes generate no new warnings
 
 ## Screenshots (if applicable)
