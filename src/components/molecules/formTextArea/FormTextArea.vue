@@ -3,8 +3,8 @@
     import { ref, computed } from "vue";
 
     type FormTextAreaProps = {
-        placeholder: string;
         maxLength: number;
+        placeholder?: string;
     };
 
     const props = withDefaults(defineProps<FormTextAreaProps>(), {

@@ -3,17 +3,19 @@
 
     export type ToastProps = {
         title: string;
-        description?: string;
-        type: "short" | "descriptive" | "action";
-        variant: "info" | "error";
-        visible: boolean;
-        actionLabel?: string;
+        description?: string | null;
+        type?: "short" | "descriptive" | "action";
+        variant?: "info" | "error";
+        visible?: boolean;
+        actionLabel?: string | null;
     };
 
     const props = withDefaults(defineProps<ToastProps>(), {
+        description: null,
         type: "short",
         variant: "info",
         visible: true,
+        actionLabel: null,
     });
 
     const emits = defineEmits<{

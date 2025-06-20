@@ -1,6 +1,6 @@
 <script setup lang="ts">
     type FormCounterProps = {
-        remainingCharacters: number;
+        remainingCharacters?: number;
     };
 
     const props = withDefaults(defineProps<FormCounterProps>(), {

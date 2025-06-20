@@ -4,9 +4,9 @@
     import Eye from "../../atoms/icons/external/Eye.vue";
 
     type FormInputProps = {
-        id?: string;
+        id: string;
         type?: string;
-        placeholder?: string;
+        placeholder: string;
         isDisabled?: boolean;
     };
 
