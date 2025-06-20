@@ -27,7 +27,8 @@ export default [
         },
         rules: {
             "vue/multi-word-component-names": "off",
-            "vue/html-indent": ["warn", 4],
+            "vue/html-indent": ["error", 4],
+            "vue/max-attributes-per-line": "off",
         },
     },
 ];
