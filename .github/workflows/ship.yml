@@ -23,6 +23,8 @@ jobs:
               uses: slackapi/slack-github-action@v1.24.0
               with:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+                  unfurl-links: false
+                  unfurl-media: false
                   payload: |
                       {
                         "blocks": [
@@ -37,7 +39,7 @@ jobs:
                             "type": "context",
                             "elements": [
                               {
-                                "text": "*Merged* ${{ steps.current-time.outputs.TIME }}",
+                                "text": "*Merged* ${{ steps.current-time.outputs.TIME }} / *Quality checks completed*",
                                 "type": "mrkdwn"
                               }
                             ]
@@ -56,28 +58,28 @@ jobs:
                             "type": "section",
                             "text": {
                               "type": "mrkdwn",
-                              "text": "*`Developer`*   ${{ github.event.pull_request.user.login }}"
+                              "text": "*`Author`*    ${{ github.event.pull_request.user.login }}"
                             }
                           },
                           {
                             "type": "section",
                             "text": {
                               "type": "mrkdwn",
-                              "text": "*`PR`*         <${{ github.event.pull_request.html_url }}|#${{ github.event.pull_request.number }}> - ${{ github.event.pull_request.title }}"
+                              "text": "*`PR`*        <${{ github.event.pull_request.html_url }}|#${{ github.event.pull_request.number }}> - ${{ github.event.pull_request.title }}"
                             }
                           },
                           {
                             "type": "section",
                             "text": {
                               "type": "mrkdwn",
-                              "text": "*`Changes`*     +${{ github.event.pull_request.additions }} -${{ github.event.pull_request.deletions }} (${{ github.event.pull_request.changed_files }} files)"
+                              "text": "*`Changes`*   +${{ github.event.pull_request.additions }} -${{ github.event.pull_request.deletions }} (${{ github.event.pull_request.changed_files }} files)"
                             }
                           },
                           {
                             "type": "section",
                             "text": {
                               "type": "mrkdwn",
-                              "text": "*`Commit`*      <${{ github.event.pull_request.html_url }}/commits/${{ github.event.pull_request.head.sha }}|${{ steps.short-sha.outputs.SHORT_SHA }}>"
+                              "text": "*`Commit`*    <${{ github.event.pull_request.html_url }}/commits/${{ github.event.pull_request.head.sha }}|${{ steps.short-sha.outputs.SHORT_SHA }}>"
                             }
                           },
                           {
@@ -94,14 +96,14 @@ jobs:
                             "type": "section",
                             "text": {
                               "type": "mrkdwn",
-                              "text": "*`Impact`*      ${{ github.event.pull_request.additions > 200 && 'Large' || github.event.pull_request.additions < 50 && 'Small' || 'Medium' }} changes"
+                              "text": "*`Impact`*    ${{ github.event.pull_request.additions > 200 && 'Large' || github.event.pull_request.additions < 50 && 'Small' || 'Medium' }} changes"
                             }
                           },
                           {
                             "type": "section",
                             "text": {
                               "type": "mrkdwn",
-                              "text": "*`Status`*      Ready for staging deployment"
+                              "text": "*`Status`*    Ready for staging deployment"
                             }
                           },
                           {
