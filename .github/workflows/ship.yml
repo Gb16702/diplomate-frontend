@@ -33,12 +33,22 @@ jobs:
                       component_names=$(git diff --name-only HEAD~1 HEAD | grep 'src/components' | cut -d'/' -f4 | sort | uniq | head -5)
 
                       if [ -n "$component_names" ]; then
-                          components=$(echo "$component_names" | sed 's/^/`/' | sed 's/$/`/' | tr '\n' ' / ' | sed 's/ \/ $//')
+                          component_count=$(echo "$component_names" | wc -l)
+                          
+                          components=$(echo "$component_names" | while read line; do echo "\`$line\`"; done | paste -sd ' / ')
+
+                          if [ "$component_count" -gt 1 ]; then
+                              component_label="Components updated"
+                          else
+                              component_label="Component updated"
+                          fi
                       else
                           components="`Storybook config`"
+                          component_label="Configuration updated"
                       fi
 
                       echo "changed_components=$components" >> $GITHUB_OUTPUT
+                      echo "component_label=$component_label" >> $GITHUB_OUTPUT
                       echo "Design system changes detected: $components"
                   else
                       echo "changed=false" >> $GITHUB_OUTPUT
@@ -146,7 +156,7 @@ jobs:
               if: steps.design-changes.outputs.changed == 'true'
               uses: slackapi/slack-github-action@v1.24.0
               with:
-                  channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+                  channel-id: ${{ secrets.SLACK_DESIGN_SYSTEM_CHANNEL_ID }}
                   payload: |
                       {
                           "blocks": [
@@ -178,7 +188,7 @@ jobs:
                                   "type": "section",
                                   "text": {
                                       "type": "mrkdwn",
-                                      "text": "Component updated: ${{ steps.design-changes.outputs.changed_components }}"
+                                      "text": "${{ steps.design-changes.outputs.component_label }}:   ${{ steps.design-changes.outputs.changed_components }}"
                                   }
                               },
                               {
