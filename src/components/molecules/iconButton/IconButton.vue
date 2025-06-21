@@ -80,7 +80,7 @@
             outline: none;
 
             &.primary {
-                background-color: var(--color-gray-dark);
+                background-color: var(--color-orange);
                 color: white;
             }
 
