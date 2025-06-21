@@ -11,6 +11,11 @@ jobs:
         if: github.event.pull_request.merged == true
 
         steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
             - name: Get current time (Europe/Paris)
               id: current-time
               run: echo "TIME=$(TZ='Europe/Paris' date +'%d/%m/%Y at %H:%M')" >> $GITHUB_OUTPUT
@@ -18,6 +23,26 @@ jobs:
             - name: Get short SHA
               id: short-sha
               run: echo "SHORT_SHA=$(echo ${{ github.event.pull_request.head.sha }} | cut -c1-7)" >> $GITHUB_OUTPUT
+
+            - name: Detect design system changes
+              id: design-changes
+              run: |
+                  if git diff --name-only ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} | grep -E "(src/components|\.storybook)" > /dev/null; then
+                      echo "changed=true" >> $GITHUB_OUTPUT
+
+                      component_names=$(git diff --name-only ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }} | grep 'src/components' | cut -d'/' -f4 | sort | uniq | head -5)
+
+                      if [ -n "$component_names" ]; then
+                          components=$(echo "$component_names" | sed 's/^/`/' | sed 's/$/`/' | tr '\n' ' / ' | sed 's/ \/ $//')
+                      else
+                          # Si seulement .storybook modifié
+                          components="`Storybook config`"
+                      fi
+
+                      echo "changed_components=$components" >> $GITHUB_OUTPUT
+                  else
+                      echo "changed=false" >> $GITHUB_OUTPUT
+                  fi
 
             - name: Slack Notification - Ship Success
               uses: slackapi/slack-github-action@v1.24.0
@@ -112,6 +137,57 @@ jobs:
                                   }
                               }
                           ]
+                      }
+              env:
+                  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+            - name: Slack Notification - Design system updates
+              if: steps.design-changes.outputs.changed == 'true'
+              uses: slackapi/slack-github-action@v1.24.0
+              with:
+                  channel-id: ${{ secrets.SLACK_DESIGN_SYSTEM_CHANNEL_ID }}
+                  payload: |
+                      {
+                      	"blocks": [
+                      		{
+                      			"type": "header",
+                      			"text": {
+                      				"type": "plain_text",
+                      				"text": "Design System Updated"
+                      			}
+                      		},
+                      		{
+                      			"type": "section",
+                      			"text": {
+                      				"type": "mrkdwn",
+                      				"text": "${{ github.event.pull_request.title }} (#${{ github.event.pull_request.number }})"
+                      			}
+                      		},
+                      		{
+                      			"type": "divider"
+                      		},
+                      		{
+                      			"type": "section",
+                      			"text": {
+                      				"type": "mrkdwn",
+                      				"text": "*Details*"
+                      			}
+                      		},
+                      		{
+                      			"type": "section",
+                      			"text": {
+                      				"type": "mrkdwn",
+                      				"text": "Component updated:   ${{ steps.design-changes.outputs.changed_components }}"
+                      			}
+                      		},
+                      		{
+                      			"type": "section",
+                      			"text": {
+                      				"type": "mrkdwn",
+                      				"text": "View the updated <https://6855a5efeaea3708446ecdca-jlnygxvtlx.chromatic.com|*Storybook*> or check the <https://www.chromatic.com/builds?appId=6855a5efeaea3708446ecdca|*latest build*> in Chromatic."
+                      			}
+                      		}
+                      	]
                       }
               env:
                   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
