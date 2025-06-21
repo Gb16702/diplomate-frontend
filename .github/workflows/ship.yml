@@ -177,7 +177,7 @@ jobs:
                       			"type": "section",
                       			"text": {
                       				"type": "mrkdwn",
-                      				"text": "Component updated: ${{ steps.design-changes.outputs.changed_components }}"
+                      				"text": "Component updated:   ${{ steps.design-changes.outputs.changed_components }}"
                       			}
                       		},
                       		{
