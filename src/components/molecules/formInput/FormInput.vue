@@ -1,7 +1,7 @@
 <script setup lang="ts">
     import { ref, computed } from "vue";
-    import EyeOff from "../../atoms/icons/external/EyeOff.vue";
-    import Eye from "../../atoms/icons/external/Eye.vue";
+    import EyeOff from "../../atoms/icons/EyeOff.vue";
+    import Eye from "../../atoms/icons/Eye.vue";
 
     type FormInputProps = {
         id: string;
