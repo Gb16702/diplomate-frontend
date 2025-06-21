@@ -195,7 +195,7 @@ jobs:
                                   "type": "section",
                                   "text": {
                                       "type": "mrkdwn",
-                                      "text": "View the updated <https://6855a5efeaea3708446ecdca-jlnygxvtlx.chromatic.com|*Storybook*> or check the <https://www.chromatic.com/builds?appId=6855a5efeaea3708446ecdca|*latest build*> in Chromatic."
+                                      "text": "View the <https://www.chromatic.com/builds?appId=6855a5efeaea3708446ecdca|*latest Storybook build*> in Chromatic."
                                   }
                               }
                           ]
