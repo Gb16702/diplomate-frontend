@@ -2,8 +2,6 @@ name: Code Quality
 on:
     pull_request:
         branches: [main]
-    push:
-        branches: [main]
 
 jobs:
     quality-check:
@@ -12,6 +10,8 @@ jobs:
         steps:
             - name: Checkout code
               uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
 
             - name: Setup Node
               uses: actions/setup-node@v4
@@ -53,3 +53,22 @@ jobs:
 
             - name: Build server
               run: pnpm run build:server
+
+            - name: Detect Storybook changes
+              id: storybook-changes
+              run: |
+                  if git diff --name-only origin/main...HEAD | grep -E "(src/components|\.storybook)" > /dev/null; then
+                      echo "changed=true" >> $GITHUB_OUTPUT
+                  else
+                      echo "changed=false" >> $GITHUB_OUTPUT
+                  fi
+
+            - name: Build Storybook
+              if: steps.storybook-changes.outputs.changed == 'true'
+              run: pnpm run build-storybook
+
+            - name: Run visual tests
+              if: steps.storybook-changes.outputs.changed == 'true'
+              run: pnpm exec chromatic
+              env:
+                  CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}

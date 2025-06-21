@@ -25,93 +25,93 @@ jobs:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
                   payload: |
                       {
-                        "blocks": [
-                          {
-                            "type": "header",
-                            "text": {
-                              "type": "plain_text",
-                              "text": "Production-ready updates added to main"
-                            }
-                          },
-                          {
-                            "type": "context",
-                            "elements": [
+                          "blocks": [
                               {
-                                "text": "*Merged* ${{ steps.current-time.outputs.TIME }} / *Quality checks completed*",
-                                "type": "mrkdwn"
+                                  "type": "header",
+                                  "text": {
+                                      "type": "plain_text",
+                                      "text": "Production-ready updates added to main"
+                                  }
+                              },
+                              {
+                                  "type": "context",
+                                  "elements": [
+                                      {
+                                          "text": "*Merged* ${{ steps.current-time.outputs.TIME }} / *Quality checks completed*",
+                                          "type": "mrkdwn"
+                                      }
+                                  ]
+                              },
+                              {
+                                  "type": "divider"
+                              },
+                              {
+                                  "type": "section",
+                                  "text": {
+                                      "type": "mrkdwn",
+                                      "text": "*Details*"
+                                  }
+                              },
+                              {
+                                  "type": "section",
+                                  "text": {
+                                      "type": "mrkdwn",
+                                      "text": "*`Author`*     ${{ github.event.pull_request.user.login }}"
+                                  }
+                              },
+                              {
+                                  "type": "section",
+                                  "text": {
+                                      "type": "mrkdwn",
+                                      "text": "*`PR`*            ${{ github.event.pull_request.title }} (#${{ github.event.pull_request.number }})"
+                                  }
+                              },
+                              {
+                                  "type": "section",
+                                  "text": {
+                                      "type": "mrkdwn",
+                                      "text": "*`Changes`*   +${{ github.event.pull_request.additions }} -${{ github.event.pull_request.deletions }} (${{ github.event.pull_request.changed_files }} files)"
+                                  }
+                              },
+                              {
+                                  "type": "section",
+                                  "text": {
+                                      "type": "mrkdwn",
+                                      "text": "*`Commit`*     <${{ github.event.pull_request.html_url }}/commits/${{ github.event.pull_request.head.sha }}|${{ steps.short-sha.outputs.SHORT_SHA }}>"
+                                  }
+                              },
+                              {
+                                  "type": "divider"
+                              },
+                              {
+                                  "type": "section",
+                                  "text": {
+                                      "type": "mrkdwn",
+                                      "text": "*Status*"
+                                  }
+                              },
+                              {
+                                  "type": "section",
+                                  "text": {
+                                      "type": "mrkdwn",
+                                      "text": "*`Impact`*    ${{ github.event.pull_request.additions > 200 && 'Large' || github.event.pull_request.additions < 50 && 'Small' || 'Medium' }} changes"
+                                  }
+                              },
+                              {
+                                  "type": "section",
+                                  "text": {
+                                      "type": "mrkdwn",
+                                      "text": "*`Status`*    Ready for staging deployment"
+                                  }
+                              },
+                              {
+                                  "type": "section",
+                                  "text": {
+                                      "type": "mrkdwn",
+                                      "text": "By clicking <${{ github.event.pull_request.html_url }}|*here*>, you will be able to have a detailed view about the merged pull request."
+                                  }
                               }
-                            ]
-                          },
-                          {
-                            "type": "divider"
-                          },
-                          {
-                            "type": "section",
-                            "text": {
-                              "type": "mrkdwn",
-                              "text": "*Details*"
-                            }
-                          },
-                          {
-                            "type": "section",
-                            "text": {
-                              "type": "mrkdwn",
-                              "text": "*`Author`*     ${{ github.event.pull_request.user.login }}"
-                            }
-                          },
-                          {
-                            "type": "section",
-                            "text": {
-                              "type": "mrkdwn",
-                              "text": "*`PR`*            ${{ github.event.pull_request.title }} (#${{ github.event.pull_request.number }})"
-                            }
-                          },
-                          {
-                            "type": "section",
-                            "text": {
-                              "type": "mrkdwn",
-                              "text": "*`Changes`*   +${{ github.event.pull_request.additions }} -${{ github.event.pull_request.deletions }} (${{ github.event.pull_request.changed_files }} files)"
-                            }
-                          },
-                          {
-                            "type": "section",
-                            "text": {
-                              "type": "mrkdwn",
-                              "text": "*`Commit`*     <${{ github.event.pull_request.html_url }}/commits/${{ github.event.pull_request.head.sha }}|${{ steps.short-sha.outputs.SHORT_SHA }}>"
-                            }
-                          },
-                          {
-                            "type": "divider"
-                          },
-                          {
-                            "type": "section",
-                            "text": {
-                              "type": "mrkdwn",
-                              "text": "*Status*"
-                            }
-                          },
-                          {
-                            "type": "section",
-                            "text": {
-                              "type": "mrkdwn",
-                              "text": "*`Impact`*    ${{ github.event.pull_request.additions > 200 && 'Large' || github.event.pull_request.additions < 50 && 'Small' || 'Medium' }} changes"
-                            }
-                          },
-                          {
-                            "type": "section",
-                            "text": {
-                              "type": "mrkdwn",
-                              "text": "*`Status`*    Ready for staging deployment"
-                            }
-                          },
-                          {
-                              "type": "section",
-                              "text": {
-                                  "type": "mrkdwn",
-                                  "text": "By clicking <${{ github.event.pull_request.html_url }}|*here*>, you will be able to have a detailed view about the merged pull request."
-                              }
-                          }
-                        ]
+                          ]
                       }
               env:
                   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
