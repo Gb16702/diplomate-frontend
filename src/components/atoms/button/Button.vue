@@ -118,7 +118,7 @@
     }
 
     .btn-base.contained.primary {
-        background-color: var(--color-gray-dark);
+        background-color: var(--color-orange);
         color: var(--color-cream);
     }
 
