@@ -35,7 +35,7 @@ jobs:
                       if [ -n "$component_names" ]; then
                           component_count=$(echo "$component_names" | wc -l)
                           
-                          components=$(echo "$component_names" | while read line; do echo "\`$line\`"; done | paste -sd ' / ')
+                          components=$(echo "$component_names" | while read line; do echo "\`$line\`"; done | paste -sd ' ')
 
                           if [ "$component_count" -gt 1 ]; then
                               component_label="Components updated"
