@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import IconWrapper, { type IconWrapperProps } from "../internal/IconWrapper.vue";
+    import IconWrapper, { type IconWrapperProps } from "./internal/IconWrapper.vue";
     const props = defineProps<IconWrapperProps>();
 </script>
 
